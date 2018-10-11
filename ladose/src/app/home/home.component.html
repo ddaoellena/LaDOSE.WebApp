@@ -3,6 +3,6 @@
 </p>
 <ul>
   <li *ngFor="let e of events">
-    {{ e.id }} - {{ e.name }}
+    <a [routerLink]="['/event', e.id]" >{{ e.id }} - {{ e.name }}</a>
   </li>
 </ul>

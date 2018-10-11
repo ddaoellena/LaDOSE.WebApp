@@ -11,12 +11,14 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { EventService } from './services/event.service';
+import { EventComponent } from './event/event.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
+    EventComponent,
 
   ],
   imports: [
