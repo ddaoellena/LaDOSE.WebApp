@@ -11,27 +11,53 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { EventService } from './services/event.service';
-import { EventComponent } from './event/event.component';
-
+import { EventsComponent } from './events/events.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { SeasonsComponent } from './seasons/seasons.component'
+import { SeasonService } from './services/season';
+import { ErrorInterceptor } from './helpers/error.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    EventComponent,
-
+    EventsComponent,
+    NavBarComponent,
+    SeasonsComponent,
+    //MyNavComponent
   ],
   imports: [
+
+
+    //other
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    //Material 
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+
+
     RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [
     AuthGuard,
     AuthenticationService,
     EventService,
+    SeasonService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
