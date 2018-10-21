@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
+import { AuthenticationService } from '../services/authentication.service';
+import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'nav-bar',
@@ -14,7 +16,19 @@ export class NavBarComponent {
     .pipe(
       map(result => result.matches)
     );
-    
-  constructor(private breakpointObserver: BreakpointObserver) {}
-  
+
+
+  logged: Boolean;
+  constructor(private breakpointObserver: BreakpointObserver, private authenticationService: AuthenticationService, private router: Router) {
+
+    router.events.pipe(
+      filter(event => event instanceof NavigationStart)
+    ).subscribe((event: NavigationStart) => {
+      console.log(event.url);
+      this.logged = this.authenticationService.isLogged();
+    });
   }
+  ngOnInit() {
+
+  }
+}

@@ -10,7 +10,7 @@ import {Event } from '../models/model'
 export class EventsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  dataSource: Event[];
+  dataSource: Event[] = [];
   constructor(private eventService : EventService){
 
   }
