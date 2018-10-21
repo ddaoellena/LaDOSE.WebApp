@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
-import { SeasonService } from '../services/season';
+import { SeasonService } from '../services/season.service';
 import { Season } from '../models/model';
 
 @Component({

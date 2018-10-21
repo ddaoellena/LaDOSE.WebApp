@@ -9,3 +9,10 @@ export class Season {
     name: string;
     date : Date;
 }
+
+
+export class Game {
+    id: number;
+    name: string;
+    imgUrl : string;
+}

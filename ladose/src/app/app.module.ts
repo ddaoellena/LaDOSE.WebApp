@@ -17,8 +17,10 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SeasonsComponent } from './seasons/seasons.component'
-import { SeasonService } from './services/season';
+import { SeasonService } from './services/season.service';
+import { GameService } from './services/game.service';
 import { ErrorInterceptor } from './helpers/error.interceptor';
+import { GamesComponent } from './games/games.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     EventsComponent,
     NavBarComponent,
     SeasonsComponent,
+    GamesComponent,
     //MyNavComponent
   ],
   imports: [
@@ -56,6 +59,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     AuthenticationService,
     EventService,
     SeasonService,
+    GameService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
