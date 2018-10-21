@@ -13,7 +13,7 @@ import { appRoutes } from './app.routes';
 import { EventService } from './services/event.service';
 import { EventsComponent } from './events/events.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule, MatProgressSpinnerModule } from '@angular/material';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SeasonsComponent } from './seasons/seasons.component'
@@ -45,8 +45,9 @@ import { GamesComponent } from './games/games.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-
-
+    MatFormFieldModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     LayoutModule,
